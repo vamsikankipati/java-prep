@@ -1,3 +1,5 @@
+package com.org.email;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -8,17 +10,21 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class AutoBatchEmail {
-    public static void main(String[] args) {
+
+    // Modify recipient email here
+    private final String[] to = { "vamsibh1@gmail.com" };
+
+    // Enter email to be logged in
+    private final String from = "from@email.com";
+    private final String passwd = "donotharassme";
+    String body = "Message comes here";
+    private final int numberOfEmails = 2;
+
+    public void triggerEmail() {
         System.out.println("Email batch has started...");
 
-        String from = "from@email.com";
-        String pass = "donotharassme";
-        String[] to = { "abc@email.com"
-        }; // list of recipient email addresses
-        String body = "Messaege comes here";
-
-        for (int i = 0; i < 10; i++) {
-            sendEmail(from, pass, to, i, body);
+        for (int i = 0; i < numberOfEmails; i++) {
+            sendEmail(from, passwd, to, i, body);
             System.out.println("Sending Email " + i);
         }
     }
@@ -46,8 +52,8 @@ public class AutoBatchEmail {
                 toAddress[i] = new InternetAddress(to[i]);
             }
 
-            for( int i = 0; i < toAddress.length; i++) {
-                message.addRecipient(Message.RecipientType.TO, toAddress[i]);
+            for (InternetAddress address : toAddress) {
+                message.addRecipient(Message.RecipientType.TO, address);
             }
 
             message.setSubject(subject);
