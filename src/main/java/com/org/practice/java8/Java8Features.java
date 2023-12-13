@@ -22,9 +22,7 @@ public class Java8Features {
 
         persons.parallelStream().filter(per -> {
             // block of code - defer the execution of below block of code.
-            if (per.getSalary() > 100) {
-                return true;
-            } else if (per.getSalary() > 1000) {
+            if (per.getSalary() > 1000) {
                 return false;
             } else {
                 return true;
