@@ -1,5 +1,5 @@
-A repo that contains Data Strcutures and Algorithms implementation in Java Prorgamming Language.
+A repo that contains Data Structures and Algorithms implementation in Java Programming Language.
 
 Java 8 features are also added for in-depth study.
 
-Further updates will be done on DS Algos and latest Java updates.
+Further updates will be done on Data Structures & Algorithms and latest Java feature updates.
