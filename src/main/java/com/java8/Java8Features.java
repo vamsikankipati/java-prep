@@ -4,6 +4,8 @@ import com.interview.Person;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Supplier;
 
 public class Java8Features {
     public void streamOp(List<Person> persons) {
@@ -39,6 +41,21 @@ public class Java8Features {
         // Predicate is a FI that has a single abstract method : test()
         // Eg: Comparator (compare()) and Runnable (run()) are FIs
 
+        // Predicate Interface - test()
+        persons.stream().filter(obj -> obj.getSalary() > 5000).toList();
+
+        // Function Interface - apply()
+        persons.stream().map(obj -> obj.getFirstName()).toList();
+
+        // Consumer interface - accept()
+        persons.stream().forEach(ele -> System.out.println(ele));
+
+        // Consumer interface - accept()
+        persons.stream().forEach(ele -> System.out.println(ele));
+
+        // Supplier interface - get()
+        Supplier<Double> supplier = () -> Math.random();
+        supplier.get();
 
     }
 }
